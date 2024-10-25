@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/productsSection.css">
+</head>
+
+<body>
+
+    
+
+    <section id="vietduc-products-achievements" class="vietduc-section vietduc-products-achievements">
+        <div class="products-container">
+            <div class="section-heading">
+                <h1 class="section-title">Helping a local <p>business reinvent itseft</p>
+                </h1>
+                <p class="description">We reached here with our hard work and dedication</p>
+            </div>
+            <div class="counts">
+                <div class="column-products column-products-1">
+                    <div class="members">
+                        <div class="members-icon">
+                            <img src="../images/Icon-members.png" alt="">
+                        </div>
+                        <div class="members-info">
+                            <h1 class="products-number members-number" data-val="2245341">0</h1>
+                            <p>Members</p>
+                        </div>
+                    </div>
+                    <div class="events-booking">
+                        <div class="events-booking-icon">
+                            <img src="../images/Icon-eventBookings.png" alt="">
+                        </div>
+                        <div class="events-booking-info">
+                            <h1 class="products-number events-booking-number" data-val="828867">0</h1>
+                            <p>Events-booking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-products column-products-2">
+                    <div class="clubs">
+                        <div class="clubs-icon">
+                            <img src="../images/Icon-clubs.png" alt="">
+                        </div>
+                        <div class="clubs-info">
+                            <h1 class="products-number clubs-number" data-val="46328">0</h1>
+                            <p>Clubs</p>
+                        </div>
+                    </div>
+                    <div class="payments">
+                        <div class="payments-icon">
+                            <img src="../images/Icon-payments.png" alt="">
+                        </div>
+                        <div class="payments-info">
+                            <h1 class="products-number payments-number" data-val="1926436">0</h1>
+                            <p>Payments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="vietduc-products-calender" class="vietduc-section vietduc-products-calender">
+        <div class="products-container">
+            <div class="img-calender">
+                <img src="../images/pana-products.jpg" alt="Pana-Products">
+            </div>
+            <div class="content-calender">
+                <h1 class="title-calender">How to design your site footer like we did</h1>
+                <p class="discreption-calender">Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue
+                    nec
+                    tincidunt molestie, massa nunc
+                    varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac
+                    habitasse
+                    platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae
+                    nisi
+                    ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis
+                    massa.
+                    Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum
+                    id
+                    gravida.</p>
+                <button class="btn-calender">Learn More</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    let valueDisplays = document.querySelectorAll('.products-number');
+    let interval = 4000; // Tổng thời gian 2 giây
+
+    valueDisplays.forEach((valueDisplay) => {
+        let startValue = 0;
+        let endValue = parseInt(valueDisplay.getAttribute('data-val'));
+
+        // Tính toán giá trị tăng mỗi lần lặp để phù hợp với tổng thời gian và giá trị lớn
+        let increment = Math.ceil(endValue / (interval / 10));
+        let duration = Math.floor(interval / (endValue / increment));
+
+        let counter = setInterval(function () {
+            startValue += increment;
+
+            // Đảm bảo không vượt quá giá trị cuối cùng
+            if (startValue > endValue) {
+                startValue = endValue;
+            }
+
+            valueDisplay.textContent = startValue;
+
+            if (startValue === endValue) {
+                clearInterval(counter);
+            }
+        }, duration);
+    });
+</script>
+
+<script>
+    const observerProducts = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("showProducts");
+            } else {
+                entry.target.classList.remove("showProducts");
+            }
+        });
+    });
+    const hiddenElements = document.querySelectorAll(
+        ".vietduc-products-achievements, .vietduc-products-calender"
+    );
+    hiddenElements.forEach((el) => observerProducts.observe(el));
+</script>
+
+</html>

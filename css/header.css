@@ -1,0 +1,188 @@
+
+
+
+/* -----------------Navbar Section - Nam Le----------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f7fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E0E0E0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    width: 15%;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .logo img:hover {
+    opacity: 0.8;
+  }
+
+  .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-left: 20px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+  }
+
+  .nav-links a:hover {
+    color: #00a651;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #00aaff;
+    left: 50%;
+    bottom: 0;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  .login {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #00aaff !important;
+  }
+
+  .signup {
+    background-color: #00a651;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .signup:hover {
+    background-color: #007a40;
+  }
+
+  /* Style for the dropdown container */
+.nav-links .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the dropdown content by default */
+.nav-links .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f5f5f5;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Style for the dropdown items */
+.nav-links .dropdown-content li {
+  padding: 10px;
+}
+
+/* Change link colors on hover */
+.nav-links .dropdown-content li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-links .dropdown-content li:hover a {
+  color: #007a40
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.ml-nav {
+    margin-left: 60px;
+  }
+  /* Ẩn menu icon khi trên màn hình lớn */
+  .menu-icon-nav {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  /* -----------------Responsive cho màn hình nhỏ----------------- */
+@media (max-width: 840px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #f5f5f5;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+    
+    .menu-icon-nav {
+      display: block;
+      font-size: 24px;
+      z-index: 1100;
+      
+    }
+  
+    .ml-nav {
+      margin: auto;
+    }
+    
+    .logo {
+      width: 30%;
+    }
+}

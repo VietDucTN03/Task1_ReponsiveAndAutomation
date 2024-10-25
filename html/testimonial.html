@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/testimonial.css" />
+  </head>
+  <body>
+    <!-- Section hoangnam-Testimonial-customers -->
+    <section
+      id="hoangnam-testimonial-customers"
+      class="hoangnam-testimonial-customers"
+    >
+      <div class="testimonial-content">
+        <div class="testimoial-left">
+          <img src="../images/testimonial-img.png" alt="testimonial" />
+        </div>
+        <div class="testimoial-right">
+          <div class="about-author">
+            <p>
+              Maecenas dignissim justo eget nulla rutrum molestie. Maecenas
+              lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu
+              enim metus. Vivamus sed libero ornare, tristique quam in, gravida
+              enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet
+              elit at ligula molestie, nec molestie mi blandit. Suspendisse
+              cursus tellus sed augue ultrices, quis tristique nulla sodales.
+              Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse
+              potenti. Quisque malesuada enim sapien, vitae placerat ante
+              feugiat eget. Quisque vulputate odio neque, eget efficitur libero
+              condimentum id. Curabitur id nibh id sem dignissim finibus ac sit
+              amet magna.
+            </p>
+            <h4>Tim Smith</h4>
+            <span class="text-span">
+              British Dragon Boat Racing Association</span
+            >
+          </div>
+          <div class="testimoial-logo">
+            <img
+              style="height: 40px; width: 40px"
+              src="../images/Logo1.png"
+              alt="logo1"
+            />
+            <img
+              style="width: 40px; height: 28px"
+              src="../images/Logo 2.png"
+              alt="logo2"
+            />
+            <img
+              style="width: 55px; height: 30px"
+              src="../images//Logo 3.png"
+              alt="logo3"
+            />
+            <img
+              style="width: 47px; height: 29px"
+              src="../images/Logo 4.png"
+              alt="logo4"
+            />
+            <img
+              style="width: 41px; height: 27px"
+              src="../images/Logo 5.png"
+              alt="logo5"
+            />
+            <img
+              style="width: 52px; height: 20px"
+              src="../images/Logo 6.png"
+              alt="logo6"
+            />
+            <a href="#">Meet all customers →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section hoangnam-testimonial-community-update  -->
+    <section class="hoangnam-communityUpdate" id="hoangnam-communityUpdate">
+      <div class="container">
+        <div class="communityUpdate-content">
+          <div class="content-text">
+            <h2>Caring is the new marketing</h2>
+            <p>
+              The Nexcent blog is the best place to read about the latest
+              membership insights, trends and more. See who's joining the
+              community, read about how our community is increasing their
+              membership income and lots more.
+            </p>
+            <br />
+          </div>
+          <div class="content-image">
+            <!-- Images will display here -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      var imgages = document.querySelector(".content-image");
+      var imageList = [
+        "../images/community-img1.png",
+        "../images/community-img2.png",
+        "../images/community-img3.png",
+      ];
+      var readmorelist = [
+        "Creating Streamlined Safeguarding Processes with OneRen",
+        "What are your safeguarding responsibilities and how can you manage them?",
+        "Revamping the Membership Model with Triathlon Australia",
+      ];
+
+      imageList.map((value, index) => {
+        imgages.innerHTML += `
+            <div class="card">
+                <img src="${value}" alt="Image">
+                <div class="card-content">
+                  <h3>${readmorelist[index]}</h3>
+                  <a style="color: #4CAF4F" href="#" class="readmore">Readmore →</a>
+                </div>
+              </div>
+            `;
+      });
+
+      // <-------------------------- Automation Testimonial---------------------------->
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      });
+      const hiddenElements = document.querySelectorAll(
+        ".hoangnam-testimonial-customers, .hoangnam-communityUpdate"
+      );
+      hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

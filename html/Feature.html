@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextcent</title>
+    <link rel="stylesheet" href="../css/feature.css">
+</head>
+
+<body>
+    <div class="dh-container">
+        <div class="dh-illustration">
+            <img src="../images/rafiki.png" alt="Illustration">
+        </div>
+        <div class="dh-content">
+            <h1 class="dh-title">The unseen of spending three years at Pixelgrade</h1>
+            <p class="dh-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum.
+                Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem
+                sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor.
+                Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar odio.
+            </p>
+            <a href="#" class="dh-button">Learn More</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const illustration = document.querySelector('.dh-illustration');
+            const content = document.querySelector('.dh-content');
+    
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+    
+            function checkScroll() {
+                if (isElementInViewport(illustration)) {
+                    illustration.classList.add('show');
+                }
+    
+                if (isElementInViewport(content)) {
+                    content.classList.add('show');
+                }
+            }
+    
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+        });
+    </script>
+</body>
+
+</html>
+
